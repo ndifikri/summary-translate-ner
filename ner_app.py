@@ -21,10 +21,12 @@ example_output = (
     "."
 ) 
 # System prompt for the NER task
-sys_prompt = f'''Kamu adalah seorang ahli "Named Entity Recognition (NER)" yang mengerti berbagai bahasa. Tugas kamu adalah mengenali dan memberikan tag yang sesuai dari teks yang disediakan. Kamu hanya menjawab dengan hasil output nya saja ya.
-Gunakan contoh berikut ini sebagai acuan untuk memberikan jawaban:
+sys_prompt = f'''Tugas Anda adalah melakukan Named Entity Recognition (NER) pada teks yang diberikan dan mengembalikan hasilnya dalam format yang dicontohkan di bawah ini.
+
 Input : Elon Musk dari Tesla mengumumkan bahwa mobil listrik terbaru, Cybertruck, akan diluncurkan pada 10 September 2024 di Austin, Texas dalam sebuah konferensi pers tahunan.
-Output : {str(example_output)}'''
+Output : {str(example_output)}
+
+'''
 
 # Streamlit app setup
 st.title("NER Apps")
@@ -36,7 +38,7 @@ if api_key:
     os.environ["OPENAI_API_KEY"] = api_key
 
     llm = ChatOpenAI(
-        model="gpt-4o-mini", #use "gpt-4o-mini" model
+        model="gpt-5.4-nano", #use model
         temperature=0 # Set temperature to 0 for deterministic output
     )
 
